@@ -60,11 +60,6 @@
 		top: 80px;
 	}
 
-	.content{
-		display: flex;
-		flex-direction: column;
-	}
-
 	.contents{
 		width: 80%;
 		height: fit-content;
@@ -75,11 +70,20 @@
 		color: #121212;
 	}
 
+	.content{
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 10%;
+		border-radius: 12px;
+	}
+
 	.content-header{
-    margin-bottom: 12px;
-    padding: 0;
-		font-weight: 600;
-  }
+		width: fit-content;
+		display: flex;
+		font-size: 3rem;
+		margin-bottom: 12px;
+		padding: 1% 2.2%;
+	}
 
 	aside{
 	  display: flex;
