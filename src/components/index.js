@@ -1,0 +1,1 @@
+export { default as SvelteApp } from "./MainApp.svelte";
