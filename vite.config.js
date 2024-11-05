@@ -4,6 +4,9 @@ import { transform } from "esbuild";
 import pkg from "./package.json";
 
 export default defineConfig({
+  server: {
+    host: '0.0.0.0'
+  },
   plugins: [
     svelte({
       compilerOptions: {
