@@ -1,9 +1,9 @@
 <script>
-  import Todo from "./Todo.svelte";
   import Tag from "./Tag.svelte"
+  import Todo from "./Todo.svelte";
 
+  export let todos;
   let title = "";
-  let todos = [];
   let id = 0;
   let tag = '';
   let time = '';
@@ -28,13 +28,17 @@
       return;
     }
     todos.push({
-      id,
-      title,
-
+      id:id,
+      title:title,
+      tag:tag,
+      time:time,
     });
     todos = todos;
     title = "";
+    tag = "";
+    time = "";
     id += 1;
+    console.log(todos)
   }
 </script>
 
@@ -66,10 +70,6 @@
   </div>
 </div>
 
-{#each todos as todo}
-  <Todo bind:todos={todos} {todo} />
-{/each}
-
 <style>
   .todo-create-container{
     display: flex;
@@ -83,11 +83,13 @@
     width: 50%;
     height: 400px;
     background-color: white;
-    border: 2px solid #dadada;
+    /* border: 2px solid #dadada; */
+    border: 1px solid rgb(226, 232, 240);
+		box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px;
     border-radius: 20px;
     color: black;
     outline: none;
-    padding: 1% 1.4%;
+    padding: 1.6% 2%;
     font-size: 2rem;
     resize: none;
   }
@@ -126,7 +128,9 @@
       no-repeat right 10px center / 25px auto; */
     text-align: left;
     font-size: 100%;
-    border: 2px solid #dadada;
+    /* border: 2px solid #dadada; */
+    border: 1px solid rgb(226, 232, 240);
+		box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px;
     background-color: transparent;
     color: transparent;
     border-radius: 16px;

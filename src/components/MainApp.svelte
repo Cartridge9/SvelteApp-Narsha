@@ -6,41 +6,59 @@
 
 <script>
   import MainTodo from './MainTodo.svelte';
+  import Todo from './Todo.svelte';
+  import YetTask from './YetTask.svelte';
+
+	const scrollTo = (item) => {
+		console.log('scroll')
+		let loc = document.querySelector(item).offsetTop;
+		window.scrollTo({top: loc-50, behavior: 'smooth'});
+	}
+
+	let todos = []
 </script>
 
-<header></header>
-<main>
-	<aside>
-		<div class="sidebar">
-			<button class="nav">프로필</button>
-			<button class="nav">과제 등록하기</button>
-			<button class="nav">미완료 과제</button>
-			<button class="nav">리워드</button>
-		</div>
-	</aside>
-	<div class="contents">
-		<div class="content">
-			<div class="content-header">프로필</div>
-			<div class="profile">
-				박재민 님 <br>
-				<div class="profile-task-info">
-					<div style="display: flex;">
-						<div class="profile-task-head">미완료 과제 :</div>
-						<div class="profile-task-count">100개</div>
-					</div>
-					<div style="display: flex;">
-						<div class="profile-task-head">완료 과제 :</div>
-						<div class="profile-task-count">50개</div>
+	<header></header>
+	<main>
+		<aside>
+			<div class="sidebar">
+				<button class="nav" on:click={()=>scrollTo('#profile')}>프로필</button>
+				<button class="nav" on:click={()=>scrollTo('#taskInput')}>과제 등록하기</button>
+				<button class="nav" on:click={()=>scrollTo('#yetTask')}>미완료 과제</button>
+				<button class="nav">리워드</button>
+			</div>
+		</aside>
+		<div class="contents">
+	
+			<div class="content" id="profile">
+				<div class="content-header">프로필</div>
+				<div class="profile">
+					박재민 님 <br>
+					<div class="profile-task-info">
+						<div style="display: flex;">
+							<div class="profile-task-head">미완료 과제 :</div>
+							<div class="profile-task-count">100개</div>
+						</div>
+						<div style="display: flex;">
+							<div class="profile-task-head">완료 과제 :</div>
+							<div class="profile-task-count">50개</div>
+						</div>
 					</div>
 				</div>
 			</div>
+	
+			<div class="content" id="taskInput">
+				<div class="content-header">과제 등록하기</div>
+				<MainTodo bind:todos={todos}/>
+			</div>
+	
+			<div class="content" id="yetTask">
+				<div class="content-header">미완료 과제</div>
+				<YetTask bind:todos={todos}/>
+			</div>
+	
 		</div>
-		<div class="content">
-			<div class="content-header">과제 등록하기</div>
-			<MainTodo/>
-		</div>
-	</div>
-</main>
+	</main>
 
 <style>
 	header{
@@ -66,8 +84,9 @@
 		justify-content: stretch;
 		position: relative;
 		top: 80px;
-		padding: 3% 2%;
+		padding: 3% 2% 0 2%;
 		color: #121212;
+		background-color: rgb(248, 250, 252);
 	}
 
 	.content{
@@ -82,7 +101,7 @@
 		display: flex;
 		font-size: 3rem;
 		margin-bottom: 12px;
-		padding: 1% 2.2%;
+		padding: 1% 1%;
 	}
 
 	aside{
@@ -96,7 +115,6 @@
     top: 80px;
 	  display: flex;
 	  flex-direction: column;
-    border-right: 1.6px solid #DADADA;
 	  width: 20%;
 	  height: 100%;
 	  padding: 1%;
@@ -107,7 +125,7 @@
 	  display: flex;
 	  justify-content: start;
 	  margin-bottom: 12px;
-	  padding: 8% 4%;
+	  padding: 8% 5%;
 	  border: none;
 	  border-radius: 8px;
     background-color: #ffffff;
@@ -119,23 +137,23 @@
 	.nav:hover{
     cursor: pointer;
     display: flex;
+
 	  justify-content: start;
 	  margin-bottom: 12px;
-	  padding: 8% 4%;
+	  padding: 8% 5%;
 	  border: none;
 	  border-radius: 8px;
     background-color: #ffffff;
     color: #121212;
     transition: 0.2s linear;
     font-size: 2rem;
-	  box-shadow: 0 1.8px 2.8px rgba(0, 0, 0, 0.25), 0 1px 1px rgba(0, 0, 0,0.22);
+	  box-shadow: 0 0 3.2px rgba(129, 28, 201, 0.25), 0 0 10px rgba(129, 28, 201, 0.22);
 	}
 
 	*{
     box-sizing: border-box;
   }
 
-  
   .profile{
     display: flex;
     padding: 3% 4%;
@@ -143,7 +161,8 @@
     flex-direction: column;
     font-size: 3rem;
     background-color: #ffffff;
-    border: 2px solid #DADADA;
+		border: 1px solid rgb(226, 232, 240);
+		box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px;
     border-radius: 20px;
     font-weight: 600;
   }

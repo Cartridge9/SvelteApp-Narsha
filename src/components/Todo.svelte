@@ -24,7 +24,7 @@
 </script>
 
 {#if isEdit}
-  <div>
+  <div class="todo-print">
     <input bind:value={title} 
       on:keydown={(e) => {e.key === 'Enter' && updateTodo()}}
       type="text"
@@ -42,13 +42,21 @@
 {:else}
   <div class="todo-print">
     {todo.title}
-    <div class="todo-control">
-      <button on:click={onEdit}>
-        Edit
-      </button>
-      <button on:click={deleteTodo}>
-        Delete
-      </button>
+    <div class="todo-footer">
+      {#if todo.time}
+        <span class="time">{todo.time}</span>
+      {:else}
+        <span class="time">{todo.tag}</span>
+      {/if}
+  
+      <div class="todo-control">
+        <button on:click={onEdit}>
+          Edit
+        </button>
+        <button on:click={deleteTodo}>
+          Delete
+        </button>
+      </div>
     </div>
   </div>
 {/if}
@@ -57,18 +65,35 @@
   .edit-input{
     outline: none;
     background-color: #fff;
-    color: black;
+    color: rgb(85, 85, 85);
     background-color: white;
-    border: 2px solid #dadada;
+    border: none;
     border-radius: 1px;
+    font-size: 2rem;
+    padding: 1px 0;
   }
 
   .todo-print{
     display: flex;
-    width: fit-content;
-    min-width: 100px;
+    width: 100%;
+    min-width: 260px;
+    height: 100%;
     flex-direction: column;
+    justify-content: space-between;
+    padding: 6% 8%;
+    font-size: 2rem;
     background-color: white;
-    border: 2px solid #dadada;
+    border: 1px solid rgb(226, 232, 240);
+		box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px;
+    border-radius: 12px;
+  }
+
+  .todo-footer{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .time{
+    font-size: 1.4rem;
   }
 </style>

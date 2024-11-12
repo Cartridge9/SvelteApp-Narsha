@@ -17,12 +17,14 @@
   .tag-unselected{
     padding: 4px 6px; 
     font-size: 2rem;
-    background-color: white;
+    background-color: transparent;
     border-radius: 4px;
   }
 
   .tag-selected{
-    padding: 4px 6px; 
+    padding: 4px 6px;
+    height: fit-content;
+    width: fit-content;
     font-size: 2rem;
     background-color: #6554AF;
     color: white;
