@@ -3,14 +3,17 @@
   import Todo from "./Todo.svelte";
 
   export let todos;
+  export let todoCount;
+
   let title = "";
-  let id = 0;
+  let id = localStorage.length;
   let tag = '';
   let time = '';
 
   const tagToTime = (t) => {
     tag = ''
   }
+
   const timeToTag = (tag) => {
     if (tag=='') {
       tag=''
@@ -27,12 +30,25 @@
       title = "";
       return;
     }
+
+    if(!tag && !time) tag = '매일';
+
     todos.push({
       id:id,
       title:title,
       tag:tag,
       time:time,
     });
+
+    localStorage.setItem(`${id}`, JSON.stringify({
+      id:id,
+      title:title,
+      tag:tag,
+      time:time,
+    }))
+
+    todoCount += 1
+
     todos = todos;
     title = "";
     tag = "";

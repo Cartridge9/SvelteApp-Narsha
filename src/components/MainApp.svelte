@@ -6,7 +6,6 @@
 
 <script>
   import MainTodo from './MainTodo.svelte';
-  import Todo from './Todo.svelte';
   import YetTask from './YetTask.svelte';
 
 	const scrollTo = (item) => {
@@ -16,6 +15,30 @@
 	}
 
 	let todos = []
+
+	let localLen = localStorage.length
+	
+	let todoCount = 0
+
+	let successTodoCount = ''
+
+	if(localLen == 0){
+		localStorage.setItem('success', '0')
+		successTodoCount = localStorage.getItem('success')
+		localLen = localStorage.length
+		todoCount = localLen - 1
+	}else{
+		successTodoCount = localStorage.getItem('success')
+		localLen = localStorage.length
+		todoCount = localLen - 1
+	}
+
+	for(let i = 0; i < localLen; i++){
+		if(!['success', 'todoCount'].includes(localStorage.key(i))){
+			todos.push(JSON.parse(localStorage.getItem(localStorage.key(i))))
+		}
+	}
+
 </script>
 
 	<header></header>
@@ -33,15 +56,17 @@
 			<div class="content" id="profile">
 				<div class="content-header">프로필</div>
 				<div class="profile">
-					박재민 님 <br>
+					반가워요! 👋 <br>
 					<div class="profile-task-info">
 						<div style="display: flex;">
 							<div class="profile-task-head">미완료 과제 :</div>
-							<div class="profile-task-count">100개</div>
+							<div class="profile-task-count">{todoCount}개</div>
 						</div>
 						<div style="display: flex;">
 							<div class="profile-task-head">완료 과제 :</div>
-							<div class="profile-task-count">50개</div>
+							<div class="profile-task-count">
+								{successTodoCount}개
+							</div>
 						</div>
 					</div>
 				</div>
@@ -49,12 +74,12 @@
 	
 			<div class="content" id="taskInput">
 				<div class="content-header">과제 등록하기</div>
-				<MainTodo bind:todos={todos}/>
+				<MainTodo bind:todos={todos} bind:todoCount={todoCount}/>
 			</div>
 	
 			<div class="content" id="yetTask">
 				<div class="content-header">미완료 과제</div>
-				<YetTask bind:todos={todos}/>
+				<YetTask bind:todos={todos} bind:successTodoCount={successTodoCount} bind:todoCount={todoCount}/>
 			</div>
 	
 		</div>

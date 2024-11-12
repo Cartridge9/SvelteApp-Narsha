@@ -1,6 +1,8 @@
 <script>
   export let todos 
   export let todo
+  export let successTodoCount
+  export let todoCount
 
   let isEdit = false
   let title = ''
@@ -9,17 +11,29 @@
     isEdit = true
     title = todo.title
   }
+
   const offEdit = () => {
     isEdit = false
   }
+  
   const updateTodo = () => {
     todo.title = title
     offEdit()
   }
+
+  const successTodo = () => {
+    localStorage.removeItem('success')
+    localStorage.setItem('success', `${Number(successTodoCount)+1}`)
+    successTodoCount = localStorage.getItem('success')
+    deleteTodo()
+  }
+
   const deleteTodo = () => {
     todos = todos.filter((value) => value.id != todo.id)
     console.log(todos)
     todos = todos;
+    localStorage.removeItem(`${todo.id}`)
+    todoCount -= 1
   }
 </script>
 
@@ -51,10 +65,13 @@
   
       <div class="todo-control">
         <button on:click={onEdit}>
-          Edit
+          수정
+        </button>
+        <button on:click={successTodo}>
+          완료
         </button>
         <button on:click={deleteTodo}>
-          Delete
+          삭제
         </button>
       </div>
     </div>
@@ -91,9 +108,10 @@
   .todo-footer{
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
 
   .time{
-    font-size: 1.4rem;
+    font-size: 1.6rem;
   }
 </style>
