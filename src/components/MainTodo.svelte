@@ -174,6 +174,7 @@
     height: 50px;
     font-size: 2rem;
     background-color: #6554AF;
+    color: white;
     border-radius: 20px;
     border: none;
     cursor: pointer;

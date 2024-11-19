@@ -48,7 +48,6 @@
 				<button class="nav" on:click={()=>scrollTo('#profile')}>프로필</button>
 				<button class="nav" on:click={()=>scrollTo('#taskInput')}>과제 등록하기</button>
 				<button class="nav" on:click={()=>scrollTo('#yetTask')}>미완료 과제</button>
-				<button class="nav">리워드</button>
 			</div>
 		</aside>
 		<div class="contents">
