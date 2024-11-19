@@ -5,8 +5,8 @@ import pkg from "./package.json";
 
 export default defineConfig({
   server: {
-    host: '0.0.0.0'
-    
+    host: '0.0.0.0',
+    port: 923,
   },
   plugins: [
     svelte({
