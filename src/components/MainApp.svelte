@@ -96,6 +96,7 @@
 		z-index: 1;
 		height: 80px;
 		background-color: black;
+		color: white;
 	}
 
 	.header-project-name{
