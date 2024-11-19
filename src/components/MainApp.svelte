@@ -8,10 +8,12 @@
   import MainTodo from './MainTodo.svelte';
   import YetTask from './YetTask.svelte';
 
+	let profileRef
+	let taskRef
+	let yetTaskRef
 	const scrollTo = (item) => {
-		console.log('scroll')
-		let section = document.querySelectorAll(item)[0].offsetTop;
-		window.scrollTo({top: section-50, behavior: 'smooth'});
+		let height = item.offsetTop
+		window.scrollTo({top: height-50, behavior: 'smooth'});
 	}
 
 	let todos = []
@@ -48,14 +50,14 @@
 	<main>
 		<aside>
 			<div class="sidebar">
-				<button class="nav" on:click={()=>scrollTo('#profile')}>프로필</button>
-				<button class="nav" on:click={()=>scrollTo('#taskInput')}>과제 등록하기</button>
-				<button class="nav" on:click={()=>scrollTo('#yetTask')}>미완료 과제</button>
+				<button class="nav" on:click={() => scrollTo(profileRef)}>프로필</button>
+				<button class="nav" on:click={() => scrollTo(taskRef)}>과제 등록하기</button>
+				<button class="nav" on:click={() => scrollTo(yetTaskRef)}>미완료 과제</button>
 			</div>
 		</aside>
 		<div class="contents">
 	
-			<div class="content" id="profile">
+			<div class="content" id="profile" bind:this={profileRef}>
 				<div class="content-header">프로필</div>
 				<div class="profile">
 					반가워요! 👋 <br>
@@ -74,12 +76,12 @@
 				</div>
 			</div>
 	
-			<div class="content" id="taskInput">
+			<div class="content" id="taskInput" bind:this={taskRef}>
 				<div class="content-header">과제 등록하기</div>
 				<MainTodo bind:todos={todos} bind:todoCount={todoCount}/>
 			</div>
 	
-			<div class="content" id="yetTask">
+			<div class="content" id="yetTask" bind:this={yetTaskRef}>
 				<div class="content-header">미완료 과제</div>
 				<YetTask bind:todos={todos} bind:successTodoCount={successTodoCount} bind:todoCount={todoCount}/>
 			</div>
