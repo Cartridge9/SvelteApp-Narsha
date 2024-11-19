@@ -45,11 +45,11 @@
       class="edit-input"
       />
     <div class="todo-control">
-    <button on:click={updateTodo}>
-      OK
+    <button on:click={updateTodo} class="todo-control-button">
+      수정 완료
     </button>
-    <button on:click={offEdit}>
-      Cancel
+    <button on:click={offEdit} class="todo-control-button">
+      취소
     </button>
     </div>
   </div>
@@ -64,13 +64,13 @@
       {/if}
   
       <div class="todo-control">
-        <button on:click={onEdit}>
+        <button on:click={onEdit} class="todo-control-button">
           수정
         </button>
-        <button on:click={successTodo}>
+        <button on:click={successTodo} class="todo-control-button">
           완료
         </button>
-        <button on:click={deleteTodo}>
+        <button on:click={deleteTodo} class="todo-control-button">
           삭제
         </button>
       </div>
@@ -111,5 +111,21 @@
 
   .time{
     font-size: 1.6rem;
+  }
+
+  .todo-control-button{
+    padding: 2px 10px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 2px;
+    font-size: 14px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px;
+    white-space: nowrap;
+  }
+  .todo-control-button:hover{
+    box-shadow: 0 0 3.2px rgba(129, 28, 201, 0.25), 0 0 10px rgba(129, 28, 201, 0.22);
+    transition: 0.2s linear;
+    white-space: nowrap;
   }
 </style>

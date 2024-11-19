@@ -41,7 +41,10 @@
 
 </script>
 
-	<header></header>
+	<header>
+		<span class="header-project-name">PlanA</span>
+		<span class="header-project-introduce">Prevent PlanB</span>
+	</header>
 	<main>
 		<aside>
 			<div class="sidebar">
@@ -88,10 +91,26 @@
 	header{
 		width: 100vw;
 		display: flex;
+		align-items: flex-end;
 		position: fixed;
 		z-index: 1;
 		height: 80px;
 		background-color: black;
+	}
+
+	.header-project-name{
+		display: flex;
+		align-items: center;
+		margin: 0 0 0 5%;
+		height: 100%;
+		font-size: 4rem;
+		font-weight: 600;
+	}
+	
+	.header-project-introduce{
+		margin-left: 2%;
+		font-size: 2rem;
+		margin-bottom: 1%;
 	}
 
 	main{
@@ -161,7 +180,6 @@
 	.nav:hover{
     cursor: pointer;
     display: flex;
-
 	  justify-content: start;
 	  margin-bottom: 12px;
 	  padding: 8% 5%;
@@ -169,8 +187,8 @@
 	  border-radius: 8px;
     background-color: #ffffff;
     color: #121212;
-    transition: 0.2s linear;
     font-size: 2rem;
+    transition: 0.2s linear;
 	  box-shadow: 0 0 3.2px rgba(129, 28, 201, 0.25), 0 0 10px rgba(129, 28, 201, 0.22);
 	}
 
@@ -195,7 +213,7 @@
     width: fit-content;
     display: flex;
     flex-direction: column;
-    padding: 0 12px;
+		font-weight: 400;
   }
 
   .profile-task-head{
