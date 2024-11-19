@@ -7,7 +7,12 @@
 <script>
   import MainTodo from './MainTodo.svelte';
   import YetTask from './YetTask.svelte';
-	import { scrollTo, scrollRef, scrollTop } from 'svelte-scrolling'
+
+	const scrollTo = (item) => {
+		console.log('scroll')
+		let loc = document.getElementById(item).offsetTop;
+		window.scrollTo({top: loc-50, behavior: 'smooth'});
+	}
 
 	let todos = []
 
@@ -43,14 +48,14 @@
 	<main>
 		<aside>
 			<div class="sidebar">
-				<button class="nav" use:scrollTo={'profile'}>프로필</button>
-				<button class="nav" use:scrollTo={'task'}>과제 등록하기</button>
-				<button class="nav" use:scrollTo={'yetTask'}>미완료 과제</button>
+				<button class="nav" on:click={()=>scrollTo('profile')}>프로필</button>
+				<button class="nav" on:click={()=>scrollTo('taskInput')}>과제 등록하기</button>
+				<button class="nav" on:click={()=>scrollTo('yetTask')}>미완료 과제</button>
 			</div>
 		</aside>
 		<div class="contents">
 	
-			<div class="content" use:scrollRef={'profile'}>
+			<div class="content" id="profile">
 				<div class="content-header">프로필</div>
 				<div class="profile">
 					반가워요! 👋 <br>
@@ -69,12 +74,12 @@
 				</div>
 			</div>
 	
-			<div class="content" use:scrollRef={'task'}>
+			<div class="content" id="taskInput">
 				<div class="content-header">과제 등록하기</div>
 				<MainTodo bind:todos={todos} bind:todoCount={todoCount}/>
 			</div>
 	
-			<div class="content" use:scrollRef={'yetTask'}>
+			<div class="content" id="yetTask">
 				<div class="content-header">미완료 과제</div>
 				<YetTask bind:todos={todos} bind:successTodoCount={successTodoCount} bind:todoCount={todoCount}/>
 			</div>
@@ -83,10 +88,6 @@
 	</main>
 
 <style>
-	*{
-		box-sizing: border-box;
-	}
-
 	header{
 		width: 100vw;
 		display: flex;
@@ -193,6 +194,9 @@
 	  box-shadow: 0 0 3.2px rgba(129, 28, 201, 0.25), 0 0 10px rgba(129, 28, 201, 0.22);
 	}
 
+	*{
+    box-sizing: border-box;
+  }
 
   .profile{
     display: flex;
