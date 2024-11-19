@@ -91,7 +91,7 @@
 	header{
 		width: 100vw;
 		display: flex;
-		align-items: flex-end;
+		align-items: center;
 		position: fixed;
 		z-index: 1;
 		height: 80px;
@@ -102,7 +102,7 @@
 		display: flex;
 		align-items: center;
 		margin: 0 0 0 5%;
-		height: 100%;
+		padding-top: 4px;
 		font-size: 4rem;
 		font-weight: 600;
 	}
@@ -111,6 +111,7 @@
 		margin-left: 2%;
 		font-size: 2rem;
 		margin-bottom: 1%;
+		align-self: flex-end;
 	}
 
 	main{
