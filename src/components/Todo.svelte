@@ -92,7 +92,6 @@
 
   .todo-print{
     display: flex;
-    min-width: 260px;
     flex-direction: column;
     justify-content: space-between;
     padding: 6% 8%;

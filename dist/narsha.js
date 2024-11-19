@@ -72,7 +72,7 @@ function x() {
 function ge() {
   return N("");
 }
-function k(e, t, o, i) {
+function w(e, t, o, i) {
   return e.addEventListener(t, o, i), () => e.removeEventListener(t, o, i);
 }
 function a(e, t, o) {
@@ -106,10 +106,10 @@ function gt(e) {
 }
 const st = [], S = [];
 let lt = [];
-const Lt = [], _e = /* @__PURE__ */ Promise.resolve();
+const Lt = [], me = /* @__PURE__ */ Promise.resolve();
 let Bt = !1;
-function be() {
-  Bt || (Bt = !0, _e.then(z));
+function _e() {
+  Bt || (Bt = !0, me.then(z));
 }
 function Mt(e) {
   lt.push(e);
@@ -127,7 +127,7 @@ function z() {
     try {
       for (; nt < st.length; ) {
         const t = st[nt];
-        nt++, gt(t), me(t.$$);
+        nt++, gt(t), be(t.$$);
       }
     } catch (t) {
       throw st.length = 0, nt = 0, t;
@@ -143,7 +143,7 @@ function z() {
     Lt.pop()();
   Bt = !1, It.clear(), gt(e);
 }
-function me(e) {
+function be(e) {
   if (e.fragment !== null) {
     e.update(), q(e.before_update);
     const t = e.dirty;
@@ -154,7 +154,7 @@ function $e(e) {
   const t = [], o = [];
   lt.forEach((i) => e.indexOf(i) === -1 ? t.push(i) : o.push(i)), o.forEach((i) => i()), lt = t;
 }
-const yt = /* @__PURE__ */ new Set();
+const kt = /* @__PURE__ */ new Set();
 let K;
 function ve() {
   K = {
@@ -168,13 +168,13 @@ function xe() {
   K.r || q(K.c), K = K.p;
 }
 function H(e, t) {
-  e && e.i && (yt.delete(e), e.i(t));
+  e && e.i && (kt.delete(e), e.i(t));
 }
 function Y(e, t, o, i) {
   if (e && e.o) {
-    if (yt.has(e)) return;
-    yt.add(e), K.c.push(() => {
-      yt.delete(e), i && (o && e.d(1), i());
+    if (kt.has(e)) return;
+    kt.add(e), K.c.push(() => {
+      kt.delete(e), i && (o && e.d(1), i());
     }), e.o(t);
   } else i && i();
 }
@@ -199,10 +199,10 @@ function W(e, t) {
   const o = e.$$;
   o.fragment !== null && ($e(o.after_update), q(o.on_destroy), o.fragment && o.fragment.d(t), o.on_destroy = o.fragment = null, o.ctx = []);
 }
-function we(e, t) {
-  e.$$.dirty[0] === -1 && (st.push(e), be(), e.$$.dirty.fill(0)), e.$$.dirty[t / 31 | 0] |= 1 << t % 31;
+function Ce(e, t) {
+  e.$$.dirty[0] === -1 && (st.push(e), _e(), e.$$.dirty.fill(0)), e.$$.dirty[t / 31 | 0] |= 1 << t % 31;
 }
-function _t(e, t, o, i, n, s, l = null, r = [-1]) {
+function mt(e, t, o, i, n, s, l = null, r = [-1]) {
   const d = Jt;
   gt(e);
   const c = e.$$ = {
@@ -228,9 +228,9 @@ function _t(e, t, o, i, n, s, l = null, r = [-1]) {
   };
   l && l(c.root);
   let f = !1;
-  if (c.ctx = o ? o(e, t.props || {}, (p, b, ...m) => {
-    const C = m.length ? m[0] : b;
-    return c.ctx && n(c.ctx[p], c.ctx[p] = C) && (!c.skip_bound && c.bound[p] && c.bound[p](C), f && we(e, p)), b;
+  if (c.ctx = o ? o(e, t.props || {}, (p, _, ...b) => {
+    const y = b.length ? b[0] : _;
+    return c.ctx && n(c.ctx[p], c.ctx[p] = y) && (!c.skip_bound && c.bound[p] && c.bound[p](y), f && Ce(e, p)), _;
   }) : [], c.update(), f = !0, q(c.before_update), c.fragment = i ? i(c.ctx) : !1, t.target) {
     if (t.hydrate) {
       const p = he(t.target);
@@ -307,7 +307,7 @@ typeof HTMLElement == "function" && (Xt = class extends HTMLElement {
         s in i && (o[s] = [t(s)]);
       for (const s of this.attributes) {
         const l = this.$$g_p(s.name);
-        l in this.$$d || (this.$$d[l] = kt(l, s.value, this.$$p_d, "toProp"));
+        l in this.$$d || (this.$$d[l] = wt(l, s.value, this.$$p_d, "toProp"));
       }
       for (const s in this.$$p_d)
         !(s in this.$$d) && this[s] !== void 0 && (this.$$d[s] = this[s], delete this[s]);
@@ -325,7 +325,7 @@ typeof HTMLElement == "function" && (Xt = class extends HTMLElement {
         this.$$r = !0;
         for (const s in this.$$p_d)
           if (this.$$d[s] = this.$$c.$$.ctx[this.$$c.$$.props[s]], this.$$p_d[s].reflect) {
-            const l = kt(
+            const l = wt(
               s,
               this.$$d[s],
               this.$$p_d,
@@ -348,7 +348,7 @@ typeof HTMLElement == "function" && (Xt = class extends HTMLElement {
   // and setting attributes through setAttribute etc, this is helpful
   attributeChangedCallback(t, o, i) {
     var n;
-    this.$$r || (t = this.$$g_p(t), this.$$d[t] = kt(t, i, this.$$p_d, "toProp"), (n = this.$$c) == null || n.$set({ [t]: this.$$d[t] }));
+    this.$$r || (t = this.$$g_p(t), this.$$d[t] = wt(t, i, this.$$p_d, "toProp"), (n = this.$$c) == null || n.$set({ [t]: this.$$d[t] }));
   }
   disconnectedCallback() {
     this.$$cn = !1, Promise.resolve().then(() => {
@@ -361,7 +361,7 @@ typeof HTMLElement == "function" && (Xt = class extends HTMLElement {
     ) || t;
   }
 });
-function kt(e, t, o, i) {
+function wt(e, t, o, i) {
   var s;
   const n = (s = o[e]) == null ? void 0 : s.type;
   if (t = n === "Boolean" && typeof t != "boolean" ? t != null : t, !i || !o[e])
@@ -391,7 +391,7 @@ function kt(e, t, o, i) {
         return t;
     }
 }
-function bt(e, t, o, i, n, s) {
+function _t(e, t, o, i, n, s) {
   let l = class extends Xt {
     constructor() {
       super(e, o, n), this.$$p_d = t;
@@ -409,7 +409,7 @@ function bt(e, t, o, i, n, s) {
       },
       set(d) {
         var c;
-        d = kt(r, d, t), this.$$d[r] = d, (c = this.$$c) == null || c.$set({ [r]: d });
+        d = wt(r, d, t), this.$$d[r] = d, (c = this.$$c) == null || c.$set({ [r]: d });
       }
     });
   }), i.forEach((r) => {
@@ -422,7 +422,7 @@ function bt(e, t, o, i, n, s) {
   }), e.element = /** @type {any} */
   l, l;
 }
-class mt {
+class bt {
   constructor() {
     /**
      * ### PRIVATE API
@@ -468,12 +468,12 @@ class mt {
     this.$$set && !ue(t) && (this.$$.skip_bound = !0, this.$$set(t), this.$$.skip_bound = !1);
   }
 }
-const Ce = "4";
-typeof window < "u" && (window.__svelte || (window.__svelte = { v: /* @__PURE__ */ new Set() })).v.add(Ce);
-function ye(e) {
+const ye = "4";
+typeof window < "u" && (window.__svelte || (window.__svelte = { v: /* @__PURE__ */ new Set() })).v.add(ye);
+function ke(e) {
   pt(e, "svelte-1m9rn1b", ".tag-unselected.svelte-1m9rn1b{padding:4px 6px;font-size:2rem;background-color:transparent;border-radius:4px}.tag-selected.svelte-1m9rn1b{padding:4px 6px;height:fit-content;width:fit-content;font-size:2rem;background-color:#6554AF;color:white;border-radius:4px}.radio-button.svelte-1m9rn1b{display:none}");
 }
-function ke(e) {
+function we(e) {
   let t, o, i, n, s, l, r;
   return {
     c() {
@@ -502,7 +502,7 @@ function ke(e) {
       ) + " svelte-1m9rn1b");
     },
     m(d, c) {
-      O(d, t, c), u(t, o), u(t, i), u(t, n), l || (r = k(
+      O(d, t, c), u(t, o), u(t, i), u(t, n), l || (r = w(
         o,
         "click",
         /*tagToggle*/
@@ -556,9 +556,9 @@ function Te(e, t, o) {
     "todoTag" in r && o(1, i = r.todoTag), "tagPrint" in r && o(2, n = r.tagPrint), "tag" in r && o(0, s = r.tag);
   }, [s, i, n, l];
 }
-class Tt extends mt {
+class Tt extends bt {
   constructor(t) {
-    super(), _t(this, t, Te, ke, ht, { todoTag: 1, tagPrint: 2, tag: 0 }, ye);
+    super(), mt(this, t, Te, we, ht, { todoTag: 1, tagPrint: 2, tag: 0 }, ke);
   }
   get todoTag() {
     return this.$$.ctx[1];
@@ -579,55 +579,55 @@ class Tt extends mt {
     this.$$set({ tag: t }), z();
   }
 }
-bt(Tt, { todoTag: {}, tagPrint: {}, tag: {} }, [], [], !0);
+_t(Tt, { todoTag: {}, tagPrint: {}, tag: {} }, [], [], !0);
 function ze(e) {
-  pt(e, "svelte-1juw7sa", ".edit-input.svelte-1juw7sa{outline:none;background-color:#fff;color:rgb(85, 85, 85);background-color:white;border:none;border-radius:1px;font-size:2rem;padding:1px 0}.todo-print.svelte-1juw7sa{display:flex;min-width:260px;flex-direction:column;justify-content:space-between;padding:6% 8%;font-size:2rem;background-color:white;border:1px solid rgb(226, 232, 240);box-shadow:rgba(0, 0, 0, 0.1) 0px 1px 3px;border-radius:12px}.todo-footer.svelte-1juw7sa{display:flex;justify-content:space-between;align-items:center}.time.svelte-1juw7sa{font-size:1.6rem}.todo-control-button.svelte-1juw7sa{padding:2px 10px;background-color:white;color:black;border:none;border-radius:2px;font-size:14px;box-shadow:rgba(0, 0, 0, 0.1) 0px 1px 3px;white-space:nowrap}.todo-control-button.svelte-1juw7sa:hover{box-shadow:0 0 3.2px rgba(129, 28, 201, 0.25), 0 0 10px rgba(129, 28, 201, 0.22);transition:0.2s linear;white-space:nowrap}");
+  pt(e, "svelte-1emeaji", ".edit-input.svelte-1emeaji{outline:none;background-color:#fff;color:rgb(85, 85, 85);background-color:white;border:none;border-radius:1px;font-size:2rem;padding:1px 0}.todo-print.svelte-1emeaji{display:flex;flex-direction:column;justify-content:space-between;padding:6% 8%;font-size:2rem;background-color:white;border:1px solid rgb(226, 232, 240);box-shadow:rgba(0, 0, 0, 0.1) 0px 1px 3px;border-radius:12px}.todo-footer.svelte-1emeaji{display:flex;justify-content:space-between;align-items:center}.time.svelte-1emeaji{font-size:1.6rem}.todo-control-button.svelte-1emeaji{padding:2px 10px;background-color:white;color:black;border:none;border-radius:2px;font-size:14px;box-shadow:rgba(0, 0, 0, 0.1) 0px 1px 3px;white-space:nowrap}.todo-control-button.svelte-1emeaji:hover{box-shadow:0 0 3.2px rgba(129, 28, 201, 0.25), 0 0 10px rgba(129, 28, 201, 0.22);transition:0.2s linear;white-space:nowrap}");
 }
 function je(e) {
   let t, o = (
     /*todo*/
     e[0].title + ""
-  ), i, n, s, l, r, d, c, f, p, b, m, C;
-  function T(_, y) {
+  ), i, n, s, l, r, d, c, f, p, _, b, y;
+  function T(m, k) {
     return (
       /*todo*/
-      _[0].time ? Pe : Ee
+      m[0].time ? Pe : Ee
     );
   }
-  let g = T(e), w = g(e);
+  let g = T(e), C = g(e);
   return {
     c() {
-      t = h("div"), i = N(o), n = x(), s = h("div"), w.c(), l = x(), r = h("div"), d = h("button"), d.textContent = "수정", c = x(), f = h("button"), f.textContent = "완료", p = x(), b = h("button"), b.textContent = "삭제", a(d, "class", "todo-control-button svelte-1juw7sa"), a(f, "class", "todo-control-button svelte-1juw7sa"), a(b, "class", "todo-control-button svelte-1juw7sa"), a(r, "class", "todo-control"), a(s, "class", "todo-footer svelte-1juw7sa"), a(t, "class", "todo-print svelte-1juw7sa");
+      t = h("div"), i = N(o), n = x(), s = h("div"), C.c(), l = x(), r = h("div"), d = h("button"), d.textContent = "수정", c = x(), f = h("button"), f.textContent = "완료", p = x(), _ = h("button"), _.textContent = "삭제", a(d, "class", "todo-control-button svelte-1emeaji"), a(f, "class", "todo-control-button svelte-1emeaji"), a(_, "class", "todo-control-button svelte-1emeaji"), a(r, "class", "todo-control"), a(s, "class", "todo-footer svelte-1emeaji"), a(t, "class", "todo-print svelte-1emeaji");
     },
-    m(_, y) {
-      O(_, t, y), u(t, i), u(t, n), u(t, s), w.m(s, null), u(s, l), u(s, r), u(r, d), u(r, c), u(r, f), u(r, p), u(r, b), m || (C = [
-        k(
+    m(m, k) {
+      O(m, t, k), u(t, i), u(t, n), u(t, s), C.m(s, null), u(s, l), u(s, r), u(r, d), u(r, c), u(r, f), u(r, p), u(r, _), b || (y = [
+        w(
           d,
           "click",
           /*onEdit*/
           e[3]
         ),
-        k(
+        w(
           f,
           "click",
           /*successTodo*/
           e[6]
         ),
-        k(
-          b,
+        w(
+          _,
           "click",
           /*deleteTodo*/
           e[7]
         )
-      ], m = !0);
+      ], b = !0);
     },
-    p(_, y) {
-      y & /*todo*/
+    p(m, k) {
+      k & /*todo*/
       1 && o !== (o = /*todo*/
-      _[0].title + "") && Z(i, o), g === (g = T(_)) && w ? w.p(_, y) : (w.d(1), w = g(_), w && (w.c(), w.m(s, l)));
+      m[0].title + "") && Z(i, o), g === (g = T(m)) && C ? C.p(m, k) : (C.d(1), C = g(m), C && (C.c(), C.m(s, l)));
     },
-    d(_) {
-      _ && E(t), w.d(), m = !1, q(C);
+    d(m) {
+      m && E(t), C.d(), b = !1, q(y);
     }
   };
 }
@@ -635,7 +635,7 @@ function Se(e) {
   let t, o, i, n, s, l, r, d, c;
   return {
     c() {
-      t = h("div"), o = h("input"), i = x(), n = h("div"), s = h("button"), s.textContent = "수정 완료", l = x(), r = h("button"), r.textContent = "취소", a(o, "type", "text"), a(o, "class", "edit-input svelte-1juw7sa"), a(s, "class", "todo-control-button svelte-1juw7sa"), a(r, "class", "todo-control-button svelte-1juw7sa"), a(n, "class", "todo-control"), a(t, "class", "todo-print svelte-1juw7sa");
+      t = h("div"), o = h("input"), i = x(), n = h("div"), s = h("button"), s.textContent = "수정 완료", l = x(), r = h("button"), r.textContent = "취소", a(o, "type", "text"), a(o, "class", "edit-input svelte-1emeaji"), a(s, "class", "todo-control-button svelte-1emeaji"), a(r, "class", "todo-control-button svelte-1emeaji"), a(n, "class", "todo-control"), a(t, "class", "todo-print svelte-1emeaji");
     },
     m(f, p) {
       O(f, t, p), u(t, o), it(
@@ -643,25 +643,25 @@ function Se(e) {
         /*title*/
         e[2]
       ), u(t, i), u(t, n), u(n, s), u(n, l), u(n, r), d || (c = [
-        k(
+        w(
           o,
           "input",
           /*input_input_handler*/
           e[11]
         ),
-        k(
+        w(
           o,
           "keydown",
           /*keydown_handler*/
           e[12]
         ),
-        k(
+        w(
           s,
           "click",
           /*updateTodo*/
           e[5]
         ),
-        k(
+        w(
           r,
           "click",
           /*offEdit*/
@@ -690,7 +690,7 @@ function Ee(e) {
   ), i;
   return {
     c() {
-      t = h("span"), i = N(o), a(t, "class", "time svelte-1juw7sa");
+      t = h("span"), i = N(o), a(t, "class", "time svelte-1emeaji");
     },
     m(n, s) {
       O(n, t, s), u(t, i);
@@ -712,7 +712,7 @@ function Pe(e) {
   ), i;
   return {
     c() {
-      t = h("span"), i = N(o), a(t, "class", "time svelte-1juw7sa");
+      t = h("span"), i = N(o), a(t, "class", "time svelte-1emeaji");
     },
     m(n, s) {
       O(n, t, s), u(t, i);
@@ -761,12 +761,12 @@ function Ne(e, t, o) {
     o(1, r = !1);
   }, p = () => {
     o(0, n.title = d, n), f();
+  }, _ = () => {
+    localStorage.removeItem("success"), localStorage.setItem("success", `${Number(s) + 1}`), o(9, s = localStorage.getItem("success")), b();
   }, b = () => {
-    localStorage.removeItem("success"), localStorage.setItem("success", `${Number(s) + 1}`), o(9, s = localStorage.getItem("success")), m();
-  }, m = () => {
     o(8, i = i.filter((g) => g.id != n.id)), console.log(i), o(8, i), localStorage.removeItem(`${n.id}`), o(10, l -= 1);
   };
-  function C() {
+  function y() {
     d = this.value, o(2, d);
   }
   const T = (g) => {
@@ -781,18 +781,18 @@ function Ne(e, t, o) {
     c,
     f,
     p,
+    _,
     b,
-    m,
     i,
     s,
     l,
-    C,
+    y,
     T
   ];
 }
-class Zt extends mt {
+class Zt extends bt {
   constructor(t) {
-    super(), _t(
+    super(), mt(
       this,
       t,
       Ne,
@@ -832,12 +832,12 @@ class Zt extends mt {
     this.$$set({ todoCount: t }), z();
   }
 }
-bt(Zt, { todos: {}, todo: {}, successTodoCount: {}, todoCount: {} }, [], [], !0);
+_t(Zt, { todos: {}, todo: {}, successTodoCount: {}, todoCount: {} }, [], [], !0);
 function Oe(e) {
   pt(e, "svelte-1dz26oo", '.todo-create-container.svelte-1dz26oo{display:flex;align-items:end;gap:16px}.todo-write.svelte-1dz26oo{display:flex;justify-content:center;width:50%;height:400px;background-color:white;border:1px solid rgb(226, 232, 240);box-shadow:rgba(0, 0, 0, 0.1) 0px 1px 3px;border-radius:20px;color:black;outline:none;padding:1.6% 2%;font-size:2rem;resize:none}.todo-info.svelte-1dz26oo{width:50%;height:400px;display:flex;flex-direction:column;justify-content:space-between}.todo-info-selecter.svelte-1dz26oo{position:relative}.todo-date.svelte-1dz26oo{margin-top:12px}.todo-time-viewer.svelte-1dz26oo{position:absolute;font-size:2rem;top:58px;left:20px;z-index:0;color:#121212}input[type="date"].svelte-1dz26oo{position:relative;width:95%;height:48px;padding:10px;text-align:left;font-size:100%;border:1px solid rgb(226, 232, 240);box-shadow:rgba(0, 0, 0, 0.1) 0px 1px 3px;background-color:transparent;color:transparent;border-radius:16px;z-index:0;user-select:none}input[type="date"].svelte-1dz26oo::-webkit-calendar-picker-indicator{position:absolute;left:-80px;top:0;width:100%;color:black;height:100%;cursor:pointer}.todo-tag-selecter.svelte-1dz26oo{display:flex;gap:12px}.todo-create-button.svelte-1dz26oo{width:100%;height:50px;font-size:2rem;background-color:#6554AF;color:white;border-radius:20px;border:none;cursor:pointer}.todo-create-button.svelte-1dz26oo:hover{background-color:#59499C}.todo-create-button.svelte-1dz26oo:active{background-color:#7566B7}');
 }
 function Ie(e) {
-  let t, o, i, n, s, l, r, d, c, f, p, b, m, C, T, g, w, _, y, F, j, M, tt, U;
+  let t, o, i, n, s, l, r, d, c, f, p, _, b, y, T, g, C, m, k, F, j, M, tt, U;
   function dt($) {
     e[8]($);
   }
@@ -859,42 +859,42 @@ function Ie(e) {
   return (
     /*tag*/
     e[0] !== void 0 && (ct.tag = /*tag*/
-    e[0]), m = new Tt({ props: ct }), S.push(() => B(m, "tag", et)), {
+    e[0]), b = new Tt({ props: ct }), S.push(() => B(b, "tag", et)), {
       c() {
-        t = h("div"), o = h("textarea"), i = x(), n = h("div"), s = h("div"), l = h("div"), rt(r.$$.fragment), c = x(), rt(f.$$.fragment), b = x(), rt(m.$$.fragment), T = x(), g = h("div"), w = N(
+        t = h("div"), o = h("textarea"), i = x(), n = h("div"), s = h("div"), l = h("div"), rt(r.$$.fragment), c = x(), rt(f.$$.fragment), _ = x(), rt(b.$$.fragment), T = x(), g = h("div"), C = N(
           /*time*/
           e[1]
-        ), _ = x(), y = h("input"), F = x(), j = h("button"), j.textContent = "작성 완료하기", a(o, "name", ""), a(o, "id", ""), a(o, "class", "todo-write svelte-1dz26oo"), a(o, "placeholder", "할 일 등록하기"), a(l, "class", "todo-tag-selecter svelte-1dz26oo"), a(g, "class", "todo-time-viewer svelte-1dz26oo"), a(y, "type", "date"), a(y, "class", "todo-date svelte-1dz26oo"), a(s, "class", "todo-info-selecter svelte-1dz26oo"), a(j, "class", "todo-create-button svelte-1dz26oo"), a(n, "class", "todo-info svelte-1dz26oo"), a(t, "class", "todo-create-container svelte-1dz26oo");
+        ), m = x(), k = h("input"), F = x(), j = h("button"), j.textContent = "작성 완료하기", a(o, "name", ""), a(o, "id", ""), a(o, "class", "todo-write svelte-1dz26oo"), a(o, "placeholder", "할 일 등록하기"), a(l, "class", "todo-tag-selecter svelte-1dz26oo"), a(g, "class", "todo-time-viewer svelte-1dz26oo"), a(k, "type", "date"), a(k, "class", "todo-date svelte-1dz26oo"), a(s, "class", "todo-info-selecter svelte-1dz26oo"), a(j, "class", "todo-create-button svelte-1dz26oo"), a(n, "class", "todo-info svelte-1dz26oo"), a(t, "class", "todo-create-container svelte-1dz26oo");
       },
       m($, P) {
         O($, t, P), u(t, o), it(
           o,
           /*title*/
           e[2]
-        ), u(t, i), u(t, n), u(n, s), u(s, l), Q(r, l, null), u(l, c), Q(f, l, null), u(l, b), Q(m, l, null), u(s, T), u(s, g), u(g, w), u(s, _), u(s, y), it(
-          y,
+        ), u(t, i), u(t, n), u(n, s), u(s, l), Q(r, l, null), u(l, c), Q(f, l, null), u(l, _), Q(b, l, null), u(s, T), u(s, g), u(g, C), u(s, m), u(s, k), it(
+          k,
           /*time*/
           e[1]
         ), u(n, F), u(n, j), M = !0, tt || (U = [
-          k(
+          w(
             o,
             "input",
             /*textarea_input_handler*/
             e[6]
           ),
-          k(
+          w(
             o,
             "keydown",
             /*keydown_handler*/
             e[7]
           ),
-          k(
-            y,
+          w(
+            k,
             "input",
             /*input_input_handler*/
             e[11]
           ),
-          k(
+          w(
             j,
             "click",
             /*createTodo*/
@@ -918,38 +918,38 @@ function Ie(e) {
         1 && (p = !0, ft.tag = /*tag*/
         $[0], L(() => p = !1)), f.$set(ft);
         const R = {};
-        !C && P & /*tag*/
-        1 && (C = !0, R.tag = /*tag*/
-        $[0], L(() => C = !1)), m.$set(R), (!M || P & /*time*/
+        !y && P & /*tag*/
+        1 && (y = !0, R.tag = /*tag*/
+        $[0], L(() => y = !1)), b.$set(R), (!M || P & /*time*/
         2) && Z(
-          w,
+          C,
           /*time*/
           $[1]
         ), P & /*time*/
         2 && it(
-          y,
+          k,
           /*time*/
           $[1]
         );
       },
       i($) {
-        M || (H(r.$$.fragment, $), H(f.$$.fragment, $), H(m.$$.fragment, $), M = !0);
+        M || (H(r.$$.fragment, $), H(f.$$.fragment, $), H(b.$$.fragment, $), M = !0);
       },
       o($) {
-        Y(r.$$.fragment, $), Y(f.$$.fragment, $), Y(m.$$.fragment, $), M = !1;
+        Y(r.$$.fragment, $), Y(f.$$.fragment, $), Y(b.$$.fragment, $), M = !1;
       },
       d($) {
-        $ && E(t), W(r), W(f), W(m), tt = !1, q(U);
+        $ && E(t), W(r), W(f), W(b), tt = !1, q(U);
       }
     }
   );
 }
 function Le(e, t, o) {
   let { todos: i } = t, { todoCount: n } = t, s = "", l = localStorage.length, r = "", d = "";
-  const c = (_) => {
+  const c = (m) => {
     o(0, r = "");
-  }, f = (_) => {
-    _ == "" ? _ = "" : o(1, d = "");
+  }, f = (m) => {
+    m == "" ? m = "" : o(1, d = "");
   }, p = () => {
     if (!s.trim()) {
       o(2, s = "");
@@ -957,26 +957,26 @@ function Le(e, t, o) {
     }
     !r && !d && o(0, r = "매일"), i.push({ id: l, title: s, tag: r, time: d }), localStorage.setItem(`${l}`, JSON.stringify({ id: l, title: s, tag: r, time: d })), o(5, n += 1), o(4, i), o(2, s = ""), o(0, r = ""), o(1, d = ""), l += 1, console.log(i);
   };
-  function b() {
+  function _() {
     s = this.value, o(2, s);
   }
-  const m = (_) => {
-    _.key === "Enter" && _.isComposing == !1 && (_.preventDefault(), p());
+  const b = (m) => {
+    m.key === "Enter" && m.isComposing == !1 && (m.preventDefault(), p());
   };
-  function C(_) {
-    r = _, o(0, r);
+  function y(m) {
+    r = m, o(0, r);
   }
-  function T(_) {
-    r = _, o(0, r);
+  function T(m) {
+    r = m, o(0, r);
   }
-  function g(_) {
-    r = _, o(0, r);
+  function g(m) {
+    r = m, o(0, r);
   }
-  function w() {
+  function C() {
     d = this.value, o(1, d);
   }
-  return e.$$set = (_) => {
-    "todos" in _ && o(4, i = _.todos), "todoCount" in _ && o(5, n = _.todoCount);
+  return e.$$set = (m) => {
+    "todos" in m && o(4, i = m.todos), "todoCount" in m && o(5, n = m.todoCount);
   }, e.$$.update = () => {
     e.$$.dirty & /*time*/
     2 && c(), e.$$.dirty & /*tag*/
@@ -988,17 +988,17 @@ function Le(e, t, o) {
     p,
     i,
     n,
+    _,
     b,
-    m,
-    C,
+    y,
     T,
     g,
-    w
+    C
   ];
 }
-class te extends mt {
+class te extends bt {
   constructor(t) {
-    super(), _t(this, t, Le, Ie, ht, { todos: 4, todoCount: 5 }, Oe);
+    super(), mt(this, t, Le, Ie, ht, { todos: 4, todoCount: 5 }, Oe);
   }
   get todos() {
     return this.$$.ctx[4];
@@ -1013,7 +1013,7 @@ class te extends mt {
     this.$$set({ todoCount: t }), z();
   }
 }
-bt(te, { todos: {}, todoCount: {} }, [], [], !0);
+_t(te, { todos: {}, todoCount: {} }, [], [], !0);
 function Be(e) {
   pt(e, "svelte-1lsobs2", ".yet-task.svelte-1lsobs2{display:grid;grid-template-columns:repeat(auto-fill, minmax(260px, auto));grid-auto-rows:minmax(240px, auto);gap:12px}");
 }
@@ -1051,16 +1051,16 @@ function Kt(e) {
         Q(t, f, p), s = !0;
       },
       p(f, p) {
-        const b = {};
+        const _ = {};
         p & /*todos*/
-        1 && (b.todo = /*todo*/
+        1 && (_.todo = /*todo*/
         f[6]), !o && p & /*todos*/
-        1 && (o = !0, b.todos = /*todos*/
+        1 && (o = !0, _.todos = /*todos*/
         f[0], L(() => o = !1)), !i && p & /*successTodoCount*/
-        2 && (i = !0, b.successTodoCount = /*successTodoCount*/
+        2 && (i = !0, _.successTodoCount = /*successTodoCount*/
         f[1], L(() => i = !1)), !n && p & /*todoCount*/
-        4 && (n = !0, b.todoCount = /*todoCount*/
-        f[2], L(() => n = !1)), t.$set(b);
+        4 && (n = !0, _.todoCount = /*todoCount*/
+        f[2], L(() => n = !1)), t.$set(_);
       },
       i(f) {
         s || (H(t.$$.fragment, f), s = !0);
@@ -1154,9 +1154,9 @@ function Je(e, t, o) {
     d
   ];
 }
-class ee extends mt {
+class ee extends bt {
   constructor(t) {
-    super(), _t(
+    super(), mt(
       this,
       t,
       Je,
@@ -1189,12 +1189,12 @@ class ee extends mt {
     this.$$set({ todoCount: t }), z();
   }
 }
-bt(ee, { todos: {}, successTodoCount: {}, todoCount: {} }, [], [], !0);
+_t(ee, { todos: {}, successTodoCount: {}, todoCount: {} }, [], [], !0);
 function Re(e) {
   pt(e, "svelte-1i1xt2o", "header.svelte-1i1xt2o{width:100vw;display:flex;align-items:center;position:fixed;z-index:1;height:80px;background-color:black;color:white}.header-project-name.svelte-1i1xt2o{display:flex;align-items:center;margin:0 0 0 5%;padding-top:4px;font-size:4rem;font-weight:600}.header-project-introduce.svelte-1i1xt2o{margin-left:2%;font-size:2rem;margin-bottom:1%;align-self:flex-end}main.svelte-1i1xt2o{display:flex;width:100vw;height:fit-content;background-color:none;top:80px}.contents.svelte-1i1xt2o{width:80%;height:fit-content;justify-content:stretch;position:relative;top:80px;padding:3% 2% 0 2%;color:#121212;background-color:rgb(248, 250, 252)}.content.svelte-1i1xt2o{display:flex;flex-direction:column;margin-bottom:10%;border-radius:12px}.content-header.svelte-1i1xt2o{width:fit-content;display:flex;font-size:3rem;margin-bottom:12px;padding:1% 1%}aside.svelte-1i1xt2o{display:flex;flex-direction:column;width:20%}.sidebar.svelte-1i1xt2o{position:fixed;top:80px;display:flex;flex-direction:column;width:20%;height:100%;padding:1%;background-color:#ffffff}.nav.svelte-1i1xt2o{display:flex;justify-content:start;margin-bottom:12px;padding:8% 5%;border:none;border-radius:8px;background-color:#ffffff;color:#121212;transition:0.2s linear;font-size:2rem}.nav.svelte-1i1xt2o:hover{cursor:pointer;display:flex;justify-content:start;margin-bottom:12px;padding:8% 5%;border:none;border-radius:8px;background-color:#ffffff;color:#121212;font-size:2rem;transition:0.2s linear;box-shadow:0 0 3.2px rgba(129, 28, 201, 0.25), 0 0 10px rgba(129, 28, 201, 0.22)}.svelte-1i1xt2o{box-sizing:border-box}.profile.svelte-1i1xt2o{display:flex;padding:3% 4%;flex-direction:column;font-size:3rem;background-color:#ffffff;border:1px solid rgb(226, 232, 240);box-shadow:rgba(0, 0, 0, 0.1) 0px 1px 3px;border-radius:20px;font-weight:600}.profile-task-info.svelte-1i1xt2o{width:fit-content;display:flex;flex-direction:column;font-weight:400}.profile-task-head.svelte-1i1xt2o{font-size:2rem;margin-top:0.5%;font-weight:400}.profile-task-count.svelte-1i1xt2o{font-size:2rem;margin-top:0.5%;margin:0 12px;font-weight:400}");
 }
 function De(e) {
-  let t, o, i, n, s, l, r, d, c, f, p, b, m, C, T, g, w, _, y, F, j, M, tt, U, dt, ut, $t, J, et, ct, $, P, at, ft, R, vt, Rt, V, zt, jt, Dt, G, xt, Ht, D, St, Et, Pt, ot, At, Ft;
+  let t, o, i, n, s, l, r, d, c, f, p, _, b, y, T, g, C, m, k, F, j, M, tt, U, dt, ut, $t, J, et, ct, $, P, at, ft, R, vt, Rt, V, zt, jt, Dt, G, xt, Ht, D, St, Et, Pt, ot, At, Ft;
   function oe(v) {
     e[7](v);
   }
@@ -1216,39 +1216,39 @@ function De(e) {
   function le(v) {
     e[11](v);
   }
-  let wt = {};
+  let Ct = {};
   return (
     /*todos*/
-    e[0] !== void 0 && (wt.todos = /*todos*/
+    e[0] !== void 0 && (Ct.todos = /*todos*/
     e[0]), /*successTodoCount*/
-    e[2] !== void 0 && (wt.successTodoCount = /*successTodoCount*/
+    e[2] !== void 0 && (Ct.successTodoCount = /*successTodoCount*/
     e[2]), /*todoCount*/
-    e[1] !== void 0 && (wt.todoCount = /*todoCount*/
-    e[1]), D = new ee({ props: wt }), S.push(() => B(D, "todos", se)), S.push(() => B(D, "successTodoCount", ie)), S.push(() => B(D, "todoCount", le)), {
+    e[1] !== void 0 && (Ct.todoCount = /*todoCount*/
+    e[1]), D = new ee({ props: Ct }), S.push(() => B(D, "todos", se)), S.push(() => B(D, "successTodoCount", ie)), S.push(() => B(D, "todoCount", le)), {
       c() {
-        t = h("header"), t.innerHTML = '<span class="header-project-name svelte-1i1xt2o">PlanA</span> <span class="header-project-introduce svelte-1i1xt2o">Prevent PlanB</span>', o = x(), i = h("main"), n = h("aside"), s = h("div"), l = h("button"), l.textContent = "프로필", r = x(), d = h("button"), d.textContent = "과제 등록하기", c = x(), f = h("button"), f.textContent = "미완료 과제", p = x(), b = h("div"), m = h("div"), C = h("div"), C.textContent = "프로필", T = x(), g = h("div"), w = N("반가워요! 👋 "), _ = h("br"), y = x(), F = h("div"), j = h("div"), M = h("div"), M.textContent = "미완료 과제 :", tt = x(), U = h("div"), dt = N(
+        t = h("header"), t.innerHTML = '<span class="header-project-name svelte-1i1xt2o">PlanA</span> <span class="header-project-introduce svelte-1i1xt2o">Prevent PlanB</span>', o = x(), i = h("main"), n = h("aside"), s = h("div"), l = h("button"), l.textContent = "프로필", r = x(), d = h("button"), d.textContent = "과제 등록하기", c = x(), f = h("button"), f.textContent = "미완료 과제", p = x(), _ = h("div"), b = h("div"), y = h("div"), y.textContent = "프로필", T = x(), g = h("div"), C = N("반가워요! 👋 "), m = h("br"), k = x(), F = h("div"), j = h("div"), M = h("div"), M.textContent = "미완료 과제 :", tt = x(), U = h("div"), dt = N(
           /*todoCount*/
           e[1]
         ), ut = N("개"), $t = x(), J = h("div"), et = h("div"), et.textContent = "완료 과제 :", ct = x(), $ = h("div"), P = N(
           /*successTodoCount*/
           e[2]
-        ), at = N("개"), ft = x(), R = h("div"), vt = h("div"), vt.textContent = "과제 등록하기", Rt = x(), rt(V.$$.fragment), Dt = x(), G = h("div"), xt = h("div"), xt.textContent = "미완료 과제", Ht = x(), rt(D.$$.fragment), a(t, "class", "svelte-1i1xt2o"), a(l, "class", "nav svelte-1i1xt2o"), a(d, "class", "nav svelte-1i1xt2o"), a(f, "class", "nav svelte-1i1xt2o"), a(s, "class", "sidebar svelte-1i1xt2o"), a(n, "class", "svelte-1i1xt2o"), a(C, "class", "content-header svelte-1i1xt2o"), a(_, "class", "svelte-1i1xt2o"), a(M, "class", "profile-task-head svelte-1i1xt2o"), a(U, "class", "profile-task-count svelte-1i1xt2o"), Ut(j, "display", "flex"), a(j, "class", "svelte-1i1xt2o"), a(et, "class", "profile-task-head svelte-1i1xt2o"), a($, "class", "profile-task-count svelte-1i1xt2o"), Ut(J, "display", "flex"), a(J, "class", "svelte-1i1xt2o"), a(F, "class", "profile-task-info svelte-1i1xt2o"), a(g, "class", "profile svelte-1i1xt2o"), a(m, "class", "content svelte-1i1xt2o"), a(m, "id", "profile"), a(vt, "class", "content-header svelte-1i1xt2o"), a(R, "class", "content svelte-1i1xt2o"), a(R, "id", "taskInput"), a(xt, "class", "content-header svelte-1i1xt2o"), a(G, "class", "content svelte-1i1xt2o"), a(G, "id", "yetTask"), a(b, "class", "contents svelte-1i1xt2o"), a(i, "class", "svelte-1i1xt2o");
+        ), at = N("개"), ft = x(), R = h("div"), vt = h("div"), vt.textContent = "과제 등록하기", Rt = x(), rt(V.$$.fragment), Dt = x(), G = h("div"), xt = h("div"), xt.textContent = "미완료 과제", Ht = x(), rt(D.$$.fragment), a(t, "class", "svelte-1i1xt2o"), a(l, "class", "nav svelte-1i1xt2o"), a(d, "class", "nav svelte-1i1xt2o"), a(f, "class", "nav svelte-1i1xt2o"), a(s, "class", "sidebar svelte-1i1xt2o"), a(n, "class", "svelte-1i1xt2o"), a(y, "class", "content-header svelte-1i1xt2o"), a(m, "class", "svelte-1i1xt2o"), a(M, "class", "profile-task-head svelte-1i1xt2o"), a(U, "class", "profile-task-count svelte-1i1xt2o"), Ut(j, "display", "flex"), a(j, "class", "svelte-1i1xt2o"), a(et, "class", "profile-task-head svelte-1i1xt2o"), a($, "class", "profile-task-count svelte-1i1xt2o"), Ut(J, "display", "flex"), a(J, "class", "svelte-1i1xt2o"), a(F, "class", "profile-task-info svelte-1i1xt2o"), a(g, "class", "profile svelte-1i1xt2o"), a(b, "class", "content svelte-1i1xt2o"), a(b, "id", "profile"), a(vt, "class", "content-header svelte-1i1xt2o"), a(R, "class", "content svelte-1i1xt2o"), a(R, "id", "taskInput"), a(xt, "class", "content-header svelte-1i1xt2o"), a(G, "class", "content svelte-1i1xt2o"), a(G, "id", "yetTask"), a(_, "class", "contents svelte-1i1xt2o"), a(i, "class", "svelte-1i1xt2o");
       },
       m(v, I) {
-        O(v, t, I), O(v, o, I), O(v, i, I), u(i, n), u(n, s), u(s, l), u(s, r), u(s, d), u(s, c), u(s, f), u(i, p), u(i, b), u(b, m), u(m, C), u(m, T), u(m, g), u(g, w), u(g, _), u(g, y), u(g, F), u(F, j), u(j, M), u(j, tt), u(j, U), u(U, dt), u(U, ut), u(F, $t), u(F, J), u(J, et), u(J, ct), u(J, $), u($, P), u($, at), u(b, ft), u(b, R), u(R, vt), u(R, Rt), Q(V, R, null), u(b, Dt), u(b, G), u(G, xt), u(G, Ht), Q(D, G, null), ot = !0, At || (Ft = [
-          k(
+        O(v, t, I), O(v, o, I), O(v, i, I), u(i, n), u(n, s), u(s, l), u(s, r), u(s, d), u(s, c), u(s, f), u(i, p), u(i, _), u(_, b), u(b, y), u(b, T), u(b, g), u(g, C), u(g, m), u(g, k), u(g, F), u(F, j), u(j, M), u(j, tt), u(j, U), u(U, dt), u(U, ut), u(F, $t), u(F, J), u(J, et), u(J, ct), u(J, $), u($, P), u($, at), u(_, ft), u(_, R), u(R, vt), u(R, Rt), Q(V, R, null), u(_, Dt), u(_, G), u(G, xt), u(G, Ht), Q(D, G, null), ot = !0, At || (Ft = [
+          w(
             l,
             "click",
             /*click_handler*/
             e[4]
           ),
-          k(
+          w(
             d,
             "click",
             /*click_handler_1*/
             e[5]
           ),
-          k(
+          w(
             f,
             "click",
             /*click_handler_2*/
@@ -1274,14 +1274,14 @@ function De(e) {
         v[0], L(() => zt = !1)), !jt && I & /*todoCount*/
         2 && (jt = !0, Ot.todoCount = /*todoCount*/
         v[1], L(() => jt = !1)), V.$set(Ot);
-        const Ct = {};
+        const yt = {};
         !St && I & /*todos*/
-        1 && (St = !0, Ct.todos = /*todos*/
+        1 && (St = !0, yt.todos = /*todos*/
         v[0], L(() => St = !1)), !Et && I & /*successTodoCount*/
-        4 && (Et = !0, Ct.successTodoCount = /*successTodoCount*/
+        4 && (Et = !0, yt.successTodoCount = /*successTodoCount*/
         v[2], L(() => Et = !1)), !Pt && I & /*todoCount*/
-        2 && (Pt = !0, Ct.todoCount = /*todoCount*/
-        v[1], L(() => Pt = !1)), D.$set(Ct);
+        2 && (Pt = !0, yt.todoCount = /*todoCount*/
+        v[1], L(() => Pt = !1)), D.$set(yt);
       },
       i(v) {
         ot || (H(V.$$.fragment, v), H(D.$$.fragment, v), ot = !0);
@@ -1298,8 +1298,8 @@ function De(e) {
 function He(e, t, o) {
   const i = (g) => {
     console.log("scroll");
-    let w = document.querySelector(`#${g}`).offsetTop;
-    window.scrollTo({ top: w - 50, behavior: "smooth" });
+    let C = document.querySelector(`#${g}`).offsetTop;
+    window.scrollTo({ top: C - 50, behavior: "smooth" });
   };
   let n = [], s = localStorage.length, l = 0, r = "";
   s == 0 ? (localStorage.setItem("success", "0"), r = localStorage.getItem("success"), s = localStorage.length, l = s - 1) : (r = localStorage.getItem("success"), s = localStorage.length, l = s - 1);
@@ -1309,13 +1309,13 @@ function He(e, t, o) {
   function p(g) {
     n = g, o(0, n);
   }
-  function b(g) {
+  function _(g) {
     l = g, o(1, l);
   }
-  function m(g) {
+  function b(g) {
     n = g, o(0, n);
   }
-  function C(g) {
+  function y(g) {
     r = g, o(2, r);
   }
   function T(g) {
@@ -1330,18 +1330,18 @@ function He(e, t, o) {
     c,
     f,
     p,
+    _,
     b,
-    m,
-    C,
+    y,
     T
   ];
 }
-class Fe extends mt {
+class Fe extends bt {
   constructor(t) {
-    super(), _t(this, t, He, De, ht, {}, Re);
+    super(), mt(this, t, He, De, ht, {}, Re);
   }
 }
-customElements.define("my-component", bt(Fe, {}, [], [], !0));
+customElements.define("my-component", _t(Fe, {}, [], [], !0));
 export {
   Fe as SvelteApp
 };
