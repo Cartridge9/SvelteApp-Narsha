@@ -137,14 +137,11 @@
 
   input[type="date"] {
     position: relative; 
-    width: 100%;
+    width: 95%;
     height: 48px;
     padding: 10px;
-    /* background: url(../assets/test.svg)
-      no-repeat right 10px center / 25px auto; */
     text-align: left;
     font-size: 100%;
-    /* border: 2px solid #dadada; */
     border: 1px solid rgb(226, 232, 240);
 		box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px;
     background-color: transparent;
