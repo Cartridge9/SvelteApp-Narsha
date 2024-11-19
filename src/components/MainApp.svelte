@@ -10,8 +10,8 @@
 
 	const scrollTo = (item) => {
 		console.log('scroll')
-		let loc = document.getElementById(item).offsetTop;
-		window.scrollTo({top: loc-50, behavior: 'smooth'});
+		let section = document.querySelectorAll(item)[0].offsetTop;
+		window.scrollTo({top: section-50, behavior: 'smooth'});
 	}
 
 	let todos = []
@@ -43,14 +43,14 @@
 
 	<header>
 		<span class="header-project-name">PlanA</span>
-		<span class="header-project-introduce">Prevent PlanB</span>
+		<span class="header-project-introduce">To Prevent PlanB</span>
 	</header>
 	<main>
 		<aside>
 			<div class="sidebar">
-				<button class="nav" on:click={()=>scrollTo('profile')}>프로필</button>
-				<button class="nav" on:click={()=>scrollTo('taskInput')}>과제 등록하기</button>
-				<button class="nav" on:click={()=>scrollTo('yetTask')}>미완료 과제</button>
+				<button class="nav" on:click={()=>scrollTo('#profile')}>프로필</button>
+				<button class="nav" on:click={()=>scrollTo('#taskInput')}>과제 등록하기</button>
+				<button class="nav" on:click={()=>scrollTo('#yetTask')}>미완료 과제</button>
 			</div>
 		</aside>
 		<div class="contents">
@@ -113,6 +113,7 @@
 		font-size: 2rem;
 		margin-bottom: 1%;
 		align-self: flex-end;
+		font-weight: 400;
 	}
 
 	main{

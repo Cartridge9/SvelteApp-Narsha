@@ -104,8 +104,9 @@
 
   .todo-footer{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    align-items: start;
+    gap: 4px;
   }
 
   .time{
