@@ -10,7 +10,7 @@
 
 	const scrollTo = (item) => {
 		console.log('scroll')
-		let loc = document.querySelector(item).offsetTop;
+		let loc = document.querySelector(`#${item}`).offsetTop;
 		window.scrollTo({top: loc-50, behavior: 'smooth'});
 	}
 
